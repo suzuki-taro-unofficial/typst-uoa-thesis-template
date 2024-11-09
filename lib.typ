@@ -1,0 +1,78 @@
+#let thesis = (
+  title: str,
+  name: str,
+  id: str,
+  superviser: str,
+  year: str,
+  abstract: none,
+  bibliography-file: str,
+  body,
+) => {
+  set page(
+    paper: "a4",
+    margin: (top: 40mm, right: 25mm, bottom: 40mm, left: 25mm),
+    columns: 2,
+    header: [
+      #grid(
+        columns: (4fr, 1fr, 1fr),
+        align(left, text(10pt, style: "italic")[
+          University of Aizu, Graduate Thesis, March, #year
+        ]),
+        align(center, text(10pt)[
+          #id
+        ]),
+        align(right, text(10pt)[
+          #context { counter(page).display() }
+        ]),
+      )
+    ],
+  )
+  set text(
+    font: "Times New Roman"
+  )
+  set heading(numbering: "1.1.")
+
+  show heading: it => pad(top: 0% - 8pt, it)
+  show heading.where(level: 1): set text(14pt)
+  show heading.where(level: 2): set text(12pt)
+
+  place(
+    top + center,
+    float: true,
+    scope: "parent",
+  )[
+    #align(center, text(20.5pt)[
+      #title
+    ])
+    #v(-20pt)
+    #line(length: 100%)
+    #v(-10pt)
+    #grid(
+      columns: (1fr, 1fr, 1fr, 1fr),
+      align(center, text(14pt)[
+        #name
+      ]),
+      align(left, text(14pt)[
+        #id
+      ]),
+      align(right + bottom, text(10pt)[
+        Supervised by
+      ]),
+      align(center, text(14pt)[
+        #superviser
+      ]),
+    )
+  ]
+
+  if abstract != none {
+    pad(y: 0% - 4pt, text(14pt)[*Abstract*])
+    abstract
+  }
+
+  body
+
+  if bibliography-file != none {
+    pad(y: 0% - 4pt, text(14pt)[*References*])
+    bibliography(bibliography-file, title: none, full: true)
+  }
+}
