@@ -33,7 +33,6 @@
   set par(first-line-indent: 1em, spacing: 0.65em)
   set heading(numbering: "1.1.")
 
-  show heading: it => pad(top: 0% - 8pt, it)
   show heading.where(level: 1): set text(14pt)
   show heading.where(level: 2): set text(12pt)
 
