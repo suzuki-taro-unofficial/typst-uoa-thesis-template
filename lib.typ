@@ -48,19 +48,25 @@
     #line(length: 100%)
     #v(-10pt)
     #grid(
-      columns: (1fr, 1fr, 1fr, 1fr),
-      align(center, text(14pt)[
-        #name
-      ]),
-      align(left, text(14pt)[
-        #id
-      ]),
-      align(right + bottom, text(10pt)[
-        Supervised by
-      ]),
-      align(center, text(14pt)[
-        #superviser
-      ]),
+      columns: (1fr, 1fr),
+      align(left)[
+        #text(14pt)[
+          #name
+        ]
+        #h(20pt)
+        #text(14pt)[
+          #id
+        ]
+      ],
+      align(right)[
+        #text(10pt)[
+          Supervised by
+        ]
+        #h(20pt)
+        #text(14pt)[
+          #superviser
+        ]
+      ]
     )
   ]
 
