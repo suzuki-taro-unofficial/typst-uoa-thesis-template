@@ -2,9 +2,9 @@
 
 #show: thesis.with(
   title: [#lorem(10)],
-  author: [#lorem(2)],
+  author: [Your Name],
   id: "sXXXXXXX",
-  superviser: [#lorem(2)],
+  superviser: [Superviser Name],
   year: "2XXX",
   abstract: [#lorem(50)],
   bibliography-file: "refs.yml",
