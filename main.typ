@@ -2,7 +2,7 @@
 
 #show: thesis.with(
   title: [#lorem(10)],
-  name: [#lorem(2)],
+  author: [#lorem(2)],
   id: "sXXXXXXX",
   superviser: [#lorem(2)],
   year: "2XXX",

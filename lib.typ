@@ -1,6 +1,6 @@
 #let thesis = (
   title: str,
-  name: str,
+  author: str,
   id: str,
   superviser: str,
   year: str,
@@ -49,7 +49,7 @@
       columns: (1fr, 1fr),
       align(left)[
         #text(14pt)[
-          #name
+          #author
         ]
         #h(20pt)
         #text(14pt)[
