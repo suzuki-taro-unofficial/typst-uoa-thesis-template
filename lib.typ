@@ -30,6 +30,7 @@
   set text(
     font: "Times New Roman"
   )
+  set par(first-line-indent: 1em, spacing: 0.65em)
   set heading(numbering: "1.1.")
 
   show heading: it => pad(top: 0% - 8pt, it)
@@ -44,9 +45,7 @@
     #align(center, text(20.5pt)[
       #title
     ])
-    #v(-20pt)
     #line(length: 100%)
-    #v(-10pt)
     #grid(
       columns: (1fr, 1fr),
       align(left)[
@@ -71,14 +70,14 @@
   ]
 
   if abstract != none {
-    pad(y: 0% - 4pt, text(14pt)[*Abstract*])
+    pad(text(14pt)[*Abstract*])
     abstract
   }
 
   body
 
   if bibliography-file != none {
-    pad(y: 0% - 4pt, text(14pt)[*References*])
+    pad(text(14pt)[*References*])
     bibliography(bibliography-file, title: none, full: true)
   }
 }

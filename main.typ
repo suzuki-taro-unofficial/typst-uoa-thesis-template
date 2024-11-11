@@ -12,15 +12,23 @@
 
 = Introduction
 
-#lorem(100)
+#lorem(50)
+
+#lorem(50)
 
 = Prerequirements
 
-#lorem(200)
+#lorem(100)
+
+#lorem(100)
 
 = Implementation
 
-#lorem(300)
+#lorem(100)
+
+#lorem(100)
+
+#lorem(100)
 
 = Summary and future works
 
