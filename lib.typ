@@ -28,6 +28,7 @@
     ],
   )
   set text(
+    size: 10pt,
     font: "Times New Roman"
   )
   set par(first-line-indent: 1em, spacing: 0.65em)
