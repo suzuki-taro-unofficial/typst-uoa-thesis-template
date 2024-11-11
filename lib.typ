@@ -70,14 +70,14 @@
   ]
 
   if abstract != none {
-    pad(text(14pt)[*Abstract*])
+    heading(numbering: none)[Abstract]
     abstract
   }
 
   body
 
   if bibliography-file != none {
-    pad(text(14pt)[*References*])
+    heading(numbering: none)[References]
     bibliography(bibliography-file, title: none, full: true)
   }
 }
