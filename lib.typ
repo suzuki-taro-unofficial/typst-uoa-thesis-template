@@ -5,7 +5,7 @@
   superviser: str,
   year: str,
   abstract: none,
-  bibliography-file: str,
+  bibliography-file: none,
   body,
 ) => {
   set page(
