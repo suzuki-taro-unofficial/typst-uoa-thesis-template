@@ -49,7 +49,7 @@
       )
     ],
   )
-  set text(size: 10pt, font: "Times New Roman")
+  set text(size: 10pt, font: ("Times New Roman", "IPAMincho"))
   set par(first-line-indent: 1em, spacing: 0.65em)
   set heading(numbering: "1.1.")
 
