@@ -30,6 +30,8 @@
   bibliography-file: none,
   body,
 ) => {
+  let ref_numbering = "1.1"
+
   set page(
     paper: "a4",
     margin: (top: 40mm, right: 25mm, bottom: 40mm, left: 25mm),
@@ -51,10 +53,30 @@
   )
   set text(size: 10pt, font: ("Times New Roman", "IPAMincho"))
   set par(first-line-indent: 1em, spacing: 0.65em)
-  set heading(numbering: "1.1.")
+  set heading(numbering: ref_numbering + ".")
 
   show heading.where(level: 1): set text(14pt)
   show heading.where(level: 2): set text(12pt)
+  
+  show ref: it => {
+    let el = it.element
+    if el != none and el.func() == heading {
+      let loc = numbering(ref_numbering, ..counter(heading).at(el.location()))
+      if text.lang == "ja" {
+        if el.level == 1 {
+          [#loc 章]
+        } else if el.level == 2 {
+          [#loc 節]
+        } else {
+          it
+        }
+      } else {
+        it
+      }
+    } else {
+      it
+    }
+  }
 
   place(
     top + center,
