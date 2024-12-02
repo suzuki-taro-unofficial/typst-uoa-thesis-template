@@ -1,9 +1,8 @@
 #import "lib.typ": thesis
 
-// Set lang to ja for japanese specific styling.
-// #set text(lang: "ja")
-
 #show: thesis.with(
+  // Set lang to ja for japanese specific styling.
+  // lang: "ja",
   title: [#lorem(10)],
   author: [Your Name],
   id: "sXXXXXXX",

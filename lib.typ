@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 #let thesis = (
+  lang: str, // "en" or "ja"
   title: str,
   author: str,
   id: str,
@@ -51,7 +52,7 @@
       )
     ],
   )
-  set text(size: 10pt, font: ("Times New Roman", "IPAMincho"))
+  set text(size: 10pt, lang: "en", font: ("Times New Roman", "IPAMincho"))
   set par(first-line-indent: 1em, spacing: 0.65em)
   set heading(numbering: ref_numbering + ".")
 
@@ -62,7 +63,7 @@
     let el = it.element
     if el != none and el.func() == heading {
       let loc = numbering(ref_numbering, ..counter(heading).at(el.location()))
-      if text.lang == "ja" {
+      if lang == "ja" {
         if el.level == 1 {
           [#loc 章]
         } else if el.level == 2 {
