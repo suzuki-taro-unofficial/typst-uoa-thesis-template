@@ -139,6 +139,6 @@
 
   if bibliography-file != none {
     heading(numbering: none)[References]
-    bibliography(bibliography-file, title: none, full: true)
+    bibliography(bibliography-file, title: none, full: false)
   }
 }
