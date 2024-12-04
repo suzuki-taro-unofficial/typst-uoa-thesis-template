@@ -21,7 +21,8 @@
 // SOFTWARE.
 
 #let thesis = (
-  lang: str, // "en" or "ja"
+  lang: "en", // "en" or "ja"
+  draft: false,
   title: str,
   author: str,
   id: str,
@@ -36,7 +37,7 @@
   set page(
     paper: "a4",
     margin: (top: 40mm, right: 25mm, bottom: 40mm, left: 25mm),
-    columns: 2,
+    columns: if draft { 1 } else { 2 },
     header: [
       #grid(
         columns: (4fr, 1fr, 1fr),
@@ -52,12 +53,26 @@
       )
     ],
   )
-  set text(size: 10pt, lang: "en", font: ("Times New Roman", "IPAMincho"))
-  set par(first-line-indent: 1em, spacing: 0.65em)
-  set heading(numbering: ref_numbering + ".")
 
+  set text(
+    size: 10pt,
+    lang: "en",
+    font: ("Times New Roman", "IPAMincho")
+  )
+  set par(first-line-indent: 1em, spacing: 0.65em)
+
+  set text(
+    size: 11pt,
+  ) if draft
+  set par(
+    spacing: 2em,
+    leading: 2em
+  ) if draft
+
+  set heading(numbering: ref_numbering + ".")
   show heading.where(level: 1): set text(14pt)
   show heading.where(level: 2): set text(12pt)
+  show heading: set block(spacing: 2em) if draft
   
   show ref: it => {
     let el = it.element
@@ -68,6 +83,8 @@
           [#loc 章]
         } else if el.level == 2 {
           [#loc 節]
+        } else if el.level == 3 {
+          [#loc 項]
         } else {
           it
         }
@@ -79,37 +96,39 @@
     }
   }
 
-  place(
-    top + center,
-    float: true,
-    scope: "parent",
-  )[
-    #align(center, text(20.5pt)[
-      #title
-    ])
-    #line(length: 100%)
-    #grid(
-      columns: (1fr, 1fr),
-      align(left)[
-        #text(14pt)[
-          #author
+  if not draft {
+    place(
+      top + center,
+      float: true,
+      scope: "parent",
+    )[
+      #align(center, text(20.5pt)[
+        #title
+      ])
+      #line(length: 100%)
+      #grid(
+        columns: (1fr, 1fr),
+        align(left)[
+          #text(14pt)[
+            #author
+          ]
+          #h(20pt)
+          #text(14pt)[
+            #id
+          ]
+        ],
+        align(right)[
+          #text(10pt)[
+            Supervised by
+          ]
+          #h(20pt)
+          #text(14pt)[
+            #superviser
+          ]
         ]
-        #h(20pt)
-        #text(14pt)[
-          #id
-        ]
-      ],
-      align(right)[
-        #text(10pt)[
-          Supervised by
-        ]
-        #h(20pt)
-        #text(14pt)[
-          #superviser
-        ]
-      ]
-    )
-  ]
+      )
+    ]
+  }
 
   if abstract != none {
     heading(numbering: none)[Abstract]
