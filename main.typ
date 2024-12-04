@@ -1,8 +1,8 @@
 #import "lib.typ": thesis
 
 #show: thesis.with(
-  // Set lang to ja for japanese specific styling.
-  // lang: "ja",
+  // lang: "ja",  // Set lang to ja for japanese specific styling.
+  // draft: true, // Set true for ready to review.
   title: [#lorem(10)],
   author: [Your Name],
   id: "sXXXXXXX",
